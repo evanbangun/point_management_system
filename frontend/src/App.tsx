@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 import Button from './components/atoms/Button';
 import Input from './components/atoms/Input';
 import Label from './components/atoms/Label';
+import LabeledInput from './components/molecules/LabeledInput'
 import Select from './components/atoms/Select';
 import Checkbox from './components/atoms/Checkbox';
 import TextArea from './components/atoms/TextArea';
@@ -15,7 +16,8 @@ function App() {
   const [selectedOption, setSelectedOption] = useState('coffee');
   const [isChecked, setIsChecked] = useState(false);
   const [textValue, setTextValue] = useState('');
-
+  const [name, setName] = useState('')
+  
   const selectOptions = [
     { label: 'Coffee', value: 'coffee' },
     { label: 'Tea', value: 'tea' },
@@ -108,6 +110,15 @@ function App() {
           <Button variant="secondary" onClick={() => alert('Secondary clicked')}>
             Cancel
           </Button>
+        </div>
+        <div className="max-w-md mx-auto p-6">
+          <LabeledInput
+            id="name"
+            label="Customer Name"
+            value={name}
+            placeholder="Enter customer name"
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
       </div>
     </div>
